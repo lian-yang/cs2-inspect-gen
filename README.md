@@ -45,3 +45,36 @@ Usage of cs2-inspect-gen:
         sticker 5 wear
 
 ```
+
+# example
+
+Used as a dependency
+
+go get github.com/lian-yang/cs2-inspect-gen@latest
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/lian-yang/cs2-inspect-gen"
+	"github.com/lian-yang/cs2-inspect-gen/econ_pb2"
+)
+
+func main() {
+	inspect, err := cs2_inspect_gen.GenerateInspect(&econ_pb2.CEconItemPreviewDataBlock{
+		Defindex:   cs2_inspect_gen.Uint32Ptr(0),
+		Paintindex: cs2_inspect_gen.Uint32Ptr(0),
+		Rarity:     cs2_inspect_gen.Uint32Ptr(0),
+		Paintwear:  cs2_inspect_gen.Uint32Ptr(0),
+		Paintseed:  cs2_inspect_gen.Uint32Ptr(0),
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(inspect) // 输出 001800200028003800400055AA61AA
+}
+
+```
