@@ -1,4 +1,4 @@
-package main
+package cs2_inspect_gen
 
 import (
 	"encoding/binary"
